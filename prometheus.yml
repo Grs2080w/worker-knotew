@@ -1,0 +1,7 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: "worker"
+    static_configs:
+      - targets: ["172.24.190.153:8080"]
