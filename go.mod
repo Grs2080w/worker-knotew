@@ -1,4 +1,4 @@
-module github.com/Grs2080w/worker-knoteq
+module github.com/Grs2080w/worker-knotew
 
 go 1.24.0
 

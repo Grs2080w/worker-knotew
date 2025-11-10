@@ -9,7 +9,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/Grs2080w/worker-knoteq/packages/github/sha"
+	"github.com/Grs2080w/worker-knotew/packages/github/sha"
 )
 
 type GitHubContentResponse struct {

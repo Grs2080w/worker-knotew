@@ -6,10 +6,10 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/Grs2080w/worker-knoteq/packages/memory"
-	"github.com/Grs2080w/worker-knoteq/packages/prometheus"
-	"github.com/Grs2080w/worker-knoteq/packages/supa"
-	"github.com/Grs2080w/worker-knoteq/packages/worker/IsolatedWorker/worker"
+	"github.com/Grs2080w/worker-knotew/packages/memory"
+	"github.com/Grs2080w/worker-knotew/packages/prometheus"
+	"github.com/Grs2080w/worker-knotew/packages/supa"
+	"github.com/Grs2080w/worker-knotew/packages/worker/IsolatedWorker/worker"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 

@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/Grs2080w/worker-knoteq/packages/supa/token"
+	"github.com/Grs2080w/worker-knotew/packages/supa/token"
 	"github.com/redis/go-redis/v9"
 )
 

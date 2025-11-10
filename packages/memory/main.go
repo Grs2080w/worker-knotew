@@ -4,7 +4,7 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/Grs2080w/worker-knoteq/packages/prometheus"
+	"github.com/Grs2080w/worker-knotew/packages/prometheus"
 )
 
 func MonitorResources() {

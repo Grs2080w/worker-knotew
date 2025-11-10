@@ -4,11 +4,11 @@ import (
 	"context"
 	"log"
 
-	"github.com/Grs2080w/worker-knoteq/packages/prometheus"
-	"github.com/Grs2080w/worker-knoteq/packages/supa/client"
-	"github.com/Grs2080w/worker-knoteq/packages/supa/get"
-	"github.com/Grs2080w/worker-knoteq/packages/supa/token"
-	"github.com/Grs2080w/worker-knoteq/packages/supa/update"
+	"github.com/Grs2080w/worker-knotew/packages/prometheus"
+	"github.com/Grs2080w/worker-knotew/packages/supa/client"
+	"github.com/Grs2080w/worker-knotew/packages/supa/get"
+	"github.com/Grs2080w/worker-knotew/packages/supa/token"
+	"github.com/Grs2080w/worker-knotew/packages/supa/update"
 	"github.com/supabase-community/supabase-go"
 )
 

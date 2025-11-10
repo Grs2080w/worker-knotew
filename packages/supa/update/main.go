@@ -3,8 +3,10 @@ package update
 import (
 	"context"
 	"errors"
+	"os"
 	"time"
 
+	"github.com/joho/godotenv"
 	"github.com/supabase-community/supabase-go"
 )
 
@@ -28,6 +30,8 @@ type JobUpdate struct {
 
 func UpdateJobStatus(ctx context.Context, client *supabase.Client, id string, status string) error {
 
+	godotenv.Load()
+
 	if err := ctx.Err(); err != nil {
         return err
     }
@@ -42,7 +46,7 @@ func UpdateJobStatus(ctx context.Context, client *supabase.Client, id string, st
 
 	update := time.Now().UTC().Format(time.RFC3339)
 
-	_, _, err := client.From("knoteq_sync_jobs").Update(JobUpdate{
+	_, _, err := client.From(os.Getenv("SUPABASE_TABLE_JOBS")).Update(JobUpdate{
 		Status: &status,
 		Updated_at: &update,
 	}, "", "exact").Eq("id", id).Execute()
@@ -57,6 +61,8 @@ func UpdateJobStatus(ctx context.Context, client *supabase.Client, id string, st
 
 func UpdateJobFailed(ctx context.Context, client *supabase.Client, id string, errr string, attempts int) error {
 
+	godotenv.Load()
+
 	if err := ctx.Err(); err != nil {
         return err
     }
@@ -69,7 +75,7 @@ func UpdateJobFailed(ctx context.Context, client *supabase.Client, id string, er
 	totalAttempts := attempts + 1
 	update := time.Now().UTC().Format(time.RFC3339)
 
-	_, _, err := client.From("knoteq_sync_jobs").Update(JobUpdate{
+	_, _, err := client.From(os.Getenv("SUPABASE_TABLE_JOBS")).Update(JobUpdate{
 		Status: &status,
 		Last_error: &errr,
 		Attempts: &totalAttempts,
@@ -86,6 +92,8 @@ func UpdateJobFailed(ctx context.Context, client *supabase.Client, id string, er
 
 func UpdateJobError(ctx context.Context, client *supabase.Client, id string, errr string) error {
 
+	godotenv.Load()
+
 	if err := ctx.Err(); err != nil {
         return err
     }
@@ -97,7 +105,7 @@ func UpdateJobError(ctx context.Context, client *supabase.Client, id string, err
 	status := "failed"
 	update := time.Now().UTC().Format(time.RFC3339)
 
-	_, _, err := client.From("knoteq_sync_jobs").Update(JobUpdate{
+	_, _, err := client.From(os.Getenv("SUPABASE_TABLE_JOBS")).Update(JobUpdate{
 		Status: &status,
 		Last_error: &errr,
 		Updated_at: &update,
@@ -113,6 +121,8 @@ func UpdateJobError(ctx context.Context, client *supabase.Client, id string, err
 
 func DeleteJobDone(ctx context.Context, client *supabase.Client, id string) error {
 
+	godotenv.Load()
+
 	if err := ctx.Err(); err != nil {
 		return err
 	}
@@ -121,7 +131,7 @@ func DeleteJobDone(ctx context.Context, client *supabase.Client, id string) erro
 		return errors.New("id is required")
 	}
 
-	_, _, err := client.From("knoteq_sync_jobs").Delete("", "").Eq("id", id).Execute()
+	_, _, err := client.From(os.Getenv("SUPABASE_TABLE_JOBS")).Delete("", "").Eq("id", id).Execute()
 
 	if err != nil {
 		return err

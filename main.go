@@ -6,12 +6,12 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/Grs2080w/worker-knoteq/packages/memory"
-	"github.com/Grs2080w/worker-knoteq/packages/prometheus"
-	"github.com/Grs2080w/worker-knoteq/packages/redis"
-	"github.com/Grs2080w/worker-knoteq/packages/supa"
-	"github.com/Grs2080w/worker-knoteq/packages/supa/get"
-	"github.com/Grs2080w/worker-knoteq/packages/worker"
+	"github.com/Grs2080w/worker-knotew/packages/memory"
+	"github.com/Grs2080w/worker-knotew/packages/prometheus"
+	"github.com/Grs2080w/worker-knotew/packages/redis"
+	"github.com/Grs2080w/worker-knotew/packages/supa"
+	"github.com/Grs2080w/worker-knotew/packages/supa/get"
+	"github.com/Grs2080w/worker-knotew/packages/worker"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
@@ -34,6 +34,7 @@ func jobFetcher(ctx context.Context, supaPublic *supa.SupabasePublic, out chan<-
 			
 		}
 		
+		log.Println("No jobs pending...")
 		time.Sleep(25*time.Second)
 		
     }

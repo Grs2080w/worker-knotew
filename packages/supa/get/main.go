@@ -2,7 +2,9 @@ package get
 
 import (
 	"context"
+	"os"
 
+	"github.com/joho/godotenv"
 	"github.com/supabase-community/postgrest-go"
 	"github.com/supabase-community/supabase-go"
 )
@@ -26,13 +28,15 @@ type Job struct {
 
 func GetJobs(ctx context.Context, client *supabase.Client) ([]Job, error) {
 
+	godotenv.Load()
+
 	if err := ctx.Err(); err != nil {
         return []Job{}, err
     }
 
 	var res []Job	
 
-	_, err := client.From("knoteq_sync_jobs").
+	_, err := client.From(os.Getenv("SUPABASE_TABLE_JOBS")).
 	Select("*", "exact", false).
 	Eq("status", "pending").
 	Order("updated_at", &postgrest.OrderOpts{Ascending: true}).
@@ -50,13 +54,15 @@ func GetJobs(ctx context.Context, client *supabase.Client) ([]Job, error) {
 
 func GetJob(ctx context.Context, client *supabase.Client) (Job, error) {
 
+	godotenv.Load()
+
 	if err := ctx.Err(); err != nil {
         return Job{}, err
     }
 
 	var res []Job	
 
-	_, err := client.From("knoteq_sync_jobs").
+	_, err := client.From(os.Getenv("SUPABASE_TABLE_JOBS")).
 		Select("*", "exact", false).
 		Eq("status", "pending").
 		Order("updated_at", &postgrest.OrderOpts{Ascending: true}).

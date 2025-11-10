@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/Grs2080w/worker-knoteq/packages/github"
-	"github.com/Grs2080w/worker-knoteq/packages/google"
-	"github.com/Grs2080w/worker-knoteq/packages/prometheus"
-	"github.com/Grs2080w/worker-knoteq/packages/supa"
-	"github.com/Grs2080w/worker-knoteq/packages/supa/get"
+	"github.com/Grs2080w/worker-knotew/packages/github"
+	"github.com/Grs2080w/worker-knotew/packages/google"
+	"github.com/Grs2080w/worker-knotew/packages/prometheus"
+	"github.com/Grs2080w/worker-knotew/packages/supa"
+	"github.com/Grs2080w/worker-knotew/packages/supa/get"
 )
 
 func Worker(supaPublic *supa.SupabasePublic, supaAuth *supa.SupabaseAuth) (*get.Job, error) {

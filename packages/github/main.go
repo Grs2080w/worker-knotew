@@ -3,7 +3,7 @@ package github
 import (
 	"context"
 
-	"github.com/Grs2080w/worker-knoteq/packages/github/update"
+	"github.com/Grs2080w/worker-knotew/packages/github/update"
 )
 
 type gitHub struct {

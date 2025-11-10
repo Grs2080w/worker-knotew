@@ -5,13 +5,13 @@ import (
 	"log"
 	"time"
 
-	"github.com/Grs2080w/worker-knoteq/packages/github"
-	"github.com/Grs2080w/worker-knoteq/packages/google"
-	"github.com/Grs2080w/worker-knoteq/packages/prometheus"
-	"github.com/Grs2080w/worker-knoteq/packages/redis"
-	"github.com/Grs2080w/worker-knoteq/packages/supa"
-	"github.com/Grs2080w/worker-knoteq/packages/supa/get"
-	"github.com/Grs2080w/worker-knoteq/packages/supa/token"
+	"github.com/Grs2080w/worker-knotew/packages/github"
+	"github.com/Grs2080w/worker-knotew/packages/google"
+	"github.com/Grs2080w/worker-knotew/packages/prometheus"
+	"github.com/Grs2080w/worker-knotew/packages/redis"
+	"github.com/Grs2080w/worker-knotew/packages/supa"
+	"github.com/Grs2080w/worker-knotew/packages/supa/get"
+	"github.com/Grs2080w/worker-knotew/packages/supa/token"
 )
 
 func Worker(supaPublic *supa.SupabasePublic, supaAuth *supa.SupabaseAuth, redisClient *redis.Redis , in <-chan get.Job) {
@@ -76,6 +76,7 @@ func Worker(supaPublic *supa.SupabasePublic, supaAuth *supa.SupabaseAuth, redisC
 
 			}
 		
+			log.Println("Job done: ", job.Id)
 			err = supaPublic.DeleteJobDone(ctx, job.Id)
 			if err != nil {
 				log.Println(err)

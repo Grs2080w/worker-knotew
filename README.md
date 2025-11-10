@@ -1,4 +1,4 @@
-# Worker-knoteq
+# Worker-knotew
 
 Worker to process synchronization jobs (Google Drive / GitHub) using Supabase as a queue/token storage and Redis for caching. Exposes Prometheus metrics for monitoring.
 
@@ -10,17 +10,17 @@ Worker to process synchronization jobs (Google Drive / GitHub) using Supabase as
 
 Important files:
 
-- [main.go](/home/grs_s/dev/worker-knoteq/main.go) — main entry with multiple workers.
+- [main.go](/home/grs_s/dev/worker-knotew/main.go) — main entry with multiple workers.
 
-- [packages/worker/main.go](/home/grs_s/dev/worker-knoteq/packages/worker/main.go) — concurrent worker loop.
+- [packages/worker/main.go](/home/grs_s/dev/worker-knotew/packages/worker/main.go) — concurrent worker loop.
 
-- [packages/worker/IsolatedWorker/root/main.go](/home/grs_s/dev/worker-knoteq/packages/worker/IsolatedWorker/root/main.go) — isolated mode (single worker).
-- [packages/supa/main.go](/home/grs_s/dev/worker-knoteq/packages/supa/main.go) — Supabase abstractions.
-- [packages/redis/main.go](/home/grs_s/dev/worker-knoteq/packages/redis/main.go) — Redis client and token cache.
-- [packages/prometheus/main.go](/home/grs_s/dev/worker-knoteq/packages/prometheus/main.go) — recorded metrics.
-- [prometheus.yml](/home/grs_s/dev/worker-knoteq/prometheus.yml) — Example Prometheus configuration.
+- [packages/worker/IsolatedWorker/root/main.go](/home/grs_s/dev/worker-knotew/packages/worker/IsolatedWorker/root/main.go) — isolated mode (single worker).
+- [packages/supa/main.go](/home/grs_s/dev/worker-knotew/packages/supa/main.go) — Supabase abstractions.
+- [packages/redis/main.go](/home/grs_s/dev/worker-knotew/packages/redis/main.go) — Redis client and token cache.
+- [packages/prometheus/main.go](/home/grs_s/dev/worker-knotew/packages/prometheus/main.go) — recorded metrics.
+- [prometheus.yml](/home/grs_s/dev/worker-knotew/prometheus.yml) — Example Prometheus configuration.
 
-- [docker-compose.yml](/home/grs_s/dev/worker-knoteq/docker-compose.yml) — Stack for Prometheus/Grafana and worker (expected image).
+- [docker-compose.yml](/home/grs_s/dev/worker-knotew/docker-compose.yml) — Stack for Prometheus/Grafana and worker (expected image).
 
 Important metrics:
 - [`prometheus.JobExecutionDuration`](packages/prometheus/main.go)

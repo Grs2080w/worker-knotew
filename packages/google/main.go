@@ -3,9 +3,9 @@ package google
 import (
 	"context"
 
-	"github.com/Grs2080w/worker-knoteq/packages/google/client"
-	"github.com/Grs2080w/worker-knoteq/packages/google/update"
-	"github.com/Grs2080w/worker-knoteq/packages/supa/token"
+	"github.com/Grs2080w/worker-knotew/packages/google/client"
+	"github.com/Grs2080w/worker-knotew/packages/google/update"
+	"github.com/Grs2080w/worker-knotew/packages/supa/token"
 	"google.golang.org/api/drive/v3"
 )
 
